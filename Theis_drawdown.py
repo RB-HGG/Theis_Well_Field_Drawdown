@@ -65,7 +65,7 @@ class Grid:
             self.S += w.Impact(self.points, t)    
              
         # write results to output file        
-        output_file = open('head_charge.csv','w')
+        output_file = open('head_change.csv','w')
         output_file.writelines(['x',',','y',',','dh','\n'])
         for (i, pt) in enumerate(self.points):
             output_file.writelines([str(pt[0, 0]),',',str(pt[0, 1]),
@@ -86,7 +86,7 @@ def ReadParams():
     b = float(param[2])         # aquifer thickness
     x0 = float(param[3])        # grid margins, x-direction
     xf = float(param[4])
-    y0 = float(param[5])        # grid margings, y-direction
+    y0 = float(param[5])        # grid margins, y-direction
     yf = float(param[6])
     num_x = int(param[7])       # grid discretization
     num_y = int(param[8])
@@ -109,19 +109,19 @@ def ReadWells(aquifer):
     
 def TheisField(t):               ### main script; t = elapsed pumping time ###
 
-    print 'Reading model parameters ...'
+    print('Reading model parameters ...')
     aquifer, grid = ReadParams()
 
-    print 'Reading well file ...'
+    print('Reading well file ...')
     well = ReadWells(aquifer)
 
-    print 'Calculating ...'
+    print('Calculating ...')
     grid.Calculate(well, t)
 
-    print 'Done.'
+    print('Done.')
 
 
 ### run script ###
 
-t = 180.
-TheisField(t)
+#t = 180.
+#TheisField(t)
